@@ -1,0 +1,693 @@
+# Data analysis 
+
+Day 1
+16 June 2025 
+
+EDA -
+
+steps 
+
+1 -- Data Gathering    
+2-- Data cleaning 
+3-- Data visualization 
+	
+data science mai ko kaam karta hai vo 
+
+domain tools purpose matlb data analysis kya karta hai make cards for this 
+
+data story data data pipeline 
+
+TASK - Make word file 
+
+
+__________________________________________________________
+
+Day 2 
+17 June 2025
+
+--> jupyter notebook
+--> variables
+--> data types 
+--> assigns
+
+--> operators
+add +
+sub -
+mul *
+div /
+floor div // 
+modulus %
+
+--> comparison operator 
+> greater than
+== equals to
+!= not equals to 
+>= grater than equals to
+
+--> Logical Operator 
+and 
+or
+not
+
+--> identity operator
+is
+is not
+
+ ## ESC + 2 for give titles and headlight in juypter notebook
+
+--> Membership Operator 
+in
+
+--> Identity operator
+if
+if else 
+if elif else
+
+TASK - explore juypter 
+
+----------------------------------------------------------------------------------------
+Day 3
+18 June 2025
+
+--> libraries 
+NumPy - numerical python numpy is a package that define multi dimensional operation . numpy support array not list 
+
+--> Array - 
+--> list -
+--> one dimension - 
+--> multi dimension -
+--> type() 
+
+TASK - Explore NumPy
+
+----------------------------------------------------------------------------------------
+Day 4
+19 June 2025
+
+--> Pandas 
+--> Data Frame 
+--> Series 
+
+# dictionary convert to data frame
+
+--> Dictionary   
+
+example - 
+
+data = { "name" : ["salman","srk"],
+	      "age" : ["24","25"] }de
+imort pandas as pd
+df = pd.DataFrame(data)
+print(df)
+
+-----------------------------------------------
+how to import excel file 
+
+data - pd.read_excel("name.xlsx")
+print(data)
+------------------------------------------------
+
+-- useful in cleaning / cleaning format / cleaning method
+
+-- print starting 10 columns
+print(data.head(10))
+
+--  print ending 10 columns
+print(data.tail(10))
+
+-- give information about table 
+print(data.info())
+
+-- find maximum & minimum & mean 
+data.describe() 
+
+## give information which is int and float
+
+-- check NUll
+print(data.isnull())
+
+print(data.isnull().sum()) #for large value
+
+-- check duplicate 
+print(data.duplicate())
+
+print(data.duplicate().sum()) #for large value
+
+always row is duplicate  
+
+-- if we found NUll & duplicate 
+print(data.drop_duplicate()) # remove duplicates
+
+if value is null then fill null 
+
+ek do null hai to hum remove karenge agar jyada hai to vaha mean fill karenege
+
+print(data.dropna()) # drop 
+
+ye sab tabhi hoga jab value int aur float hoga 
+
+import numpy as np 
+print(data.replace(np.nan,"male")) # ye pure table ke liye hai 
+
+print(data.replace(np.nan,"30"))  # replace by mean
+
+-- particular coloum mai karna hai 
+
+data["smoker"] = data["smoker"].replace(np.nan,"yes")
+print(data)
+ 
+-- for mean
+print(data["tip"].mean())
+
+
+-- backward filling & forward filling  
+
+TASK - Explore pandas
+
+----------------------------------------------------------------------------------------
+
+Day 5
+20 June 2025 
+
+explore more about panadas which is essential 
+
+--> merging or joining 
+ 
+print(pd.merge(df1,df2, on="emp id") 
+
+#jo smiler hai vahi return kiya
+
+#merge by default inner mai hi hota hai 
+
+mereg karne ke liye dono mai ek coloumn common hona chiaye or smilier hona chaiye yaha par ye emp id vala colomn hai 
+
+
+print(pd.merge(df1,df2, on="emp id",how="inner")
+
+print(pd.merge(df1,df2, on="emp id",how="left") 
+
+# left side vala pura table print hioga jo aayga vo left table ke basic pai aayega 
+
+print(pd.merge(df1,df2, on="emp id",how="right")
+
+# right side vala pura table print hioga jo aayga vo right table ke basic pai aayega 
+
+--> PIVOTING AND MELTING DATAFRAME
+
+--> PIVOTING
+index columns and value 
+
+print(df.pivot(index="keys",columns="names",values="houses")
+
+table kaa format change karne ke liye
+changing the format of table 
+
+--> MELTING 
+coloumn1 * coloumn2 
+
+print(pd.melt(df,id-vars=["names"],value-vars=["houses"]))\
+
+----------------------------------------------------------------------------------------
+
+Day 6
+23 June 2025 
+
+the library use maximum times in cleaning part 
+
+--> Mathplotlib
+
+import matplotib.pyplot as plt 
+
+y=[98,67,88,95,88]
+x=["part1","part2","part3","part4","part5"]
+colours=["red","green","yellow","blue,"orange"]
+plt.bar(x.y,color = colours)
+plt.show() 
+
+
+plt.bar(x.y)
+plt.xlabel("parts of movie")
+plt.yabel("popularity",  fontsize =17)
+plt.tittle(POPULARITY OF MOVIE")
+plt.show() 
+
+-----------------------------------------------------------------
+
+import matplotib.pyplot as plt 
+
+x= ["day1","day2","day3","day4","day5"]
+y = [300,420,250,230,400]
+plt.plot(x,y)
+plt.show()
+
+plt.plot(x,y, marker ="*", ls="--", color= "red")
+plt.show()
+
+
+x= ["day1","day2","day3","day4","day5"]
+y = [300,420,250,230,400]
+y1=[500,450,300,250,320]
+
+plt.plot(x,y, marker ="*", ls="--", color= "red", label ="week1")
+plt.plot(x,y1, marker ="*", ls="--", color= "green", label ="week2")
+plt.legend() # call function while use label
+plt.show()
+
+-----------------------------------------------------------------------
+
+import matplotib.pyplot as plt 
+import numpy as np 
+
+x = np.random.randint(1,10,50)  se leke 10 ke beech mai 50 value chaiye
+y = np.random.randint(1,100,50)
+colours  = np.random.randint(10,100,50)
+
+plt.scatter(x,y)
+plt.show()
+
+plt.scatter(x, y, cmap="any", color = colours)
+colorbar()
+plt.show()
+
+import pandas as pd 
+import numpy as np 
+
+data = pd.read_excel("")
+df = pd.DataFrame(data)
+
+print(df)
+
+plt.scatter(df{"col1"],df["col2"])
+plt.show()
+
+----------------------------------------------------------------------------------------
+
+Day 7
+24 June 2025 
+
+HOLIDAY
+
+----------------------------------------------------------------------------------------
+
+Day 8
+25 June 2025 
+
+--> Seaborn [library] -- upper version of matplotib.pyplot
+
+import seaborn as sns
+import pandas as pd 
+import matplotib.pyplot as plt 
+
+
+data = {"days":[1,2,3,4,5],
+	    "nop":[50,40,60,30,44]}
+
+df = pd.Dataframe(data)
+print(df)
+
+sns.lineplot(data= data, x="days", y="nop")
+plt.show()
+
+--------------------------------------------------------
+		
+import seaborn as sns
+import matplotib.pyplot as plt 
+
+data = sns.load_dataset(""tips")
+print(data)
+
+sns.barplot(data = data , x = "days" , y = "tip")
+plt.plot()
+
+--------------------------------------------------------
+
+sns.barplot(data = data , x = "days" , y = "tip", estimator = "median")
+plt.plot()
+
+sns.barplot(data = data , x = "days" , y = "tip", hue = "sex")
+plt.plot()
+
+sns.barplot(data = data , x = "days" , y = "tip", estimator = "median", palette="blues")
+plt.plot()
+
+-------------------------------------------------------------
+
+data = sns.load_dataset(""tips")
+print(data)
+
+sns.histplot(data = data, x="days")
+plt.show()
+
+--------------------------------------------------------------
+
+data = sns.load_dataset(""tips")
+print(data)
+
+sns.histplot(data = data, x="days", hue="sex")
+plt.show()
+
+----------------------------------------------------------------
+
+sns.histplot(data = data, x="days", hue="sex", kde = true, bins = 12)
+plt.show()
+
+---------------------------------------------------------------------------
+
+sns.scatterplot(data = data , x = "total_bill", y = "tips")
+
+sns.scatterplot(data = data , x = "total_bill", y = "tips", hue = "smoker")
+
+NOTE --> { hue - compare karta hai }
+
+--------------------------------------------------------------------------------
+
+import seaborn as sns
+import pandas as pd 
+import matplotib.pyplot as plt 
+import numpy as np
+
+data = np.random.randint (low = 1, high = 100, size = (10,10) )
+print(data)
+
+sns.heatmap(data = data, linecolor = "yellow", linewidth = "2", annot = true)
+
+sns.countplot(data = data, x ="sex")
+plt.show()
+
+--------------------------------------------------------------------------
+
+import seaborn as sns
+import pandas as pd 
+import matplotib.pyplot as plt 
+import numpy as np
+
+data = sns.load_dataset(""tips")
+
+sns.countplot(data = data, x ="days")
+plt.show()
+
+------------------------------------------------------------------------------
+
+import seaborn as sns
+import pandas as pd 
+import matplotib.pyplot as plt 
+import numpy as np
+
+data = sns.load_dataset(""tips")
+
+sns.violinplot(data = data, x = "total_bills")
+plt.show()
+
+------------------------------------------------------------------------
+
+import seaborn as sns
+import pandas as pd 
+import matplotib.pyplot as plt 
+import numpy as np
+
+data = sns.load_dataset(""tips")
+
+sns.pairplot(data = data, hue="days")
+plt.show()
+
+------------------------------------------------------------------
+
+import seaborn as sns
+import pandas as pd 
+import matplotib.pyplot as plt 
+import numpy as np
+
+data = sns.load_dataset(""tips")
+
+sns.boxplot(data = data, x="tips")
+plt.show()
+
+---------------------------------------------------
+
+sns.boxplot(data = data, x="days", y="tips", orient="vertical")
+plt.show()
+
+----------------------------------------------------------------------------------------
+
+Day 8
+25 June 2025 
+
+----------------------------------------------------------------------------------------
+
+Day 10
+27 June 2025 
+
+Data is a filed of study in which 
+
+- Data collection 
+- Data cleaning 
+- EDA
+- Create model
+- Communication 
+
+--> Data Analyst 
+
+DA is the process of organizing interpreting data to find meaningful insights and support decision making
+
+--> Machine Learning 
+
+ML is a AI that gives computer ability to learn from data and improve their performance and task
+
+take data as input 
+learn patterns from it
+make predictions 
+
+-- Types of ML
+
+- Supervised
+- Unsupervised
+- Reinforcement
+
+-------------------------------------------------------
+
+-- Supervised ML
+The algorithm i.e trained on labeled data (input output are present)
+-- Algorithm 
+- Linear regression 
+- Logistic regression
+- Decision tree- Random forest
+
+-- Supervised splits into 
+1. Regression 
+2. Classification 
+
+1. Regression
+- Goal : Predict a number or continuous value
+- example : Predicting house price , estimating temperature.
+- Popular algorithm : Linear regression , Decision tree regressor , random forest regressor, lasso and ridge
+
+Input : size of house 
+Outputs : rs 80,00,000
+
+2. Classification 
+- Goal : Predict a class and categorical label. 
+- example : spam not spam  , yes and no
+- Popular algorithm : Logistic regression , knm , decision tree classifier, random forest classifier
+
+------------------------------------------------------------------
+
+-- Unsupervised ML
+The algorithm is trained on unlabeled data and must hidden patterns or structure data 
+
+Example : Customer segmentation , market based analysis.
+
+- Popular algorithm 
+K means 
+DBSCAN
+
+----------------------------------------------------------------------
+
+-- Reinforcement ML
+The algorithm learns by interacting environment, making decision and receiving rewards and penalties
+
+-------------------------------------------------------------------------
+
+-- Ml can't understand text, they only understand numbers
+
+There are 2 technique 
+
+1. Label Encoding - convert text column into number 
+2. One Hot Encoding
+
+Label Encoding 
+It replace each category with unique number.
+
+example :
+
+from sklearn. preprocessing import LabelEncoder
+import seaborn as sns 
+
+df = sns.load_dataset("tips")
+
+## object creation
+
+LE = LabelEncoder()
+LE
+
+df["smoker"].vaue_counts()
+df["smoker"] = LE.fit_transform(df["smoker"])
+df["smoker"] 
+
+df["days"].vaue_counts()
+df["days"] = LE.fit_transform(df["days"])
+df["days"]
+
+
+when to use : When categoriers have order(low, medium, high)
+be careful : Bigger number = more important 
+
+---------------------------------------------------------------------------
+
+One Hot Encoding 
+Create new column for each category
+
+Example :
+
+from sklearn.preprocessing import OneHotEncoder
+
+df = sns.load_dataset("tips")
+
+
+ohe = OneHotencoder()
+ohe
+
+continue on monday
+-------------------------------------------------------------------
+
+--> Outlier Treatment 
+Outlier are data that are very different from rest data either much higher or much lower from data.
+
+They can reduced : accuracy of model, consistency of data 
+
+-- There are two ways to detect and remove outlier
+1. zscore
+2. 
+
+
+
+
+----------------------------------------------------------------------------------------------------
+
+Day 11 Monday 
+
+30 June 2025 
+
+holiday 
+
+----------------------------------------------------------------------------------------
+
+Day 12
+01 July 2025 
+
+Outlier are the data that are very different from rest of the data they can reduce accuracy of model 
+
+There are 2 ways to treat outlier 
+Z score
+IOR
+
+Z score 
+
+It is also called standard score it tells us how far data point is from mean. 
+
+X - mean/std # x is each value or x represent each value
+
+a = [50,60,70,80]
+
+Import numpy as np
+Import seaborn as sns
+np.mean(a)
+
+np.std(a)
+
+50-65
+
+-15/11.180
+
+From scipy.stats import zscore 
+
+array (__miss
+
+df = sns.load_dataset
+
+Step 1 check outlier 
+
+Df['total_bill'].plot[]
+
+Step 2 check z score
+Df['zscore_total_bill'] = 
+
+Step 3 condition 
+
+Df [column_name] >3 & df[col_name]<3
+
+Df[df['zscore_total_bill']<-3]
+
+Df[df['zscore_total_bill']>-3]
+
+Step 4 treat the outlier 
+
+New_data = df
+
+##   half and some incorrect  ##
+
+----------------------------------------------------------------------------------------
+
+Day 13
+02 July 2025 
+
+df = pd,read_csv('student_performance.csv')
+
+df.info()
+
+from sklearn.preprocessing import LabelEncoder
+
+LE = LbelEncoder()
+LE
+
+df['Extracurricular Activites']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
